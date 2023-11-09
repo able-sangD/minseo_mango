@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>망고</title>
+    <style>
+        body {
+            background-image: url('작은망고.jpeg');
+            background-size: 100px 100px; /* 체스판의 한 칸 크기로 설정합니다. */
+            background-repeat: repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: green; /* 버튼 배경을 초록색으로 설정합니다. */
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+        }
+
+        img {
+            width: 50px; /* 이미지의 크기를 조정합니다. */
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: green;
+            padding: 20px;
+            border: 2px solid yellow;
+            border-radius: 10px;
+            color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="popup">
+        망고 : 도와줘서 고마워
+    </div>
+
+    <button id="button1" onclick="hideButton('button1')" style="top: 50px; left: 50px;">
+        <img src="귤.png" alt="이미지 1">
+        귤 1
+    </button>
+    <button id="button2" onclick="hideButton('button2')" style="top: 100px; left: 100px;">
+        <img src="귤.png" alt="이미지 2">
+        귤 2
+    </button>
+    <button id="button3" onclick="hideButton('button3')" style="top: 150px; left: 150px;">
+        <img src="귤.png" alt="이미지 3">
+        귤 3
+    </button>
+    <button id="button4" onclick="hideButton('button4')" style="top: 200px; left: 200px;">
+        <img src="귤.png" alt="이미지 4">
+        귤 4
+    </button>
+    <button id="button5" onclick="hideButton('button5')" style="top: 250px; left: 250px;">
+        <img src="귤.png" alt="이미지 5">
+        귤 5
+    </button>
+    <button id="button6" onclick="hideButton('button6')" style="top: 300px; left: 300px;">
+        <img src="귤.png" alt="이미지 6">
+        귤 6
+    </button>
+    <button id="button7" onclick="hideButton('button7')" style="top: 350px; left: 350px;">
+        <img src="귤.png" alt="이미지 7">
+        귤 7
+    </button>
+    <button id="button8" onclick="hideButton('button8')" style="top: 400px; left: 400px;">
+        <img src="귤.png" alt="이미지 8">
+        귤 8
+    </button>
+    <button id="button9" onclick="hideButton('button9')" style="top: 450px; left: 450px;">
+        <img src="귤.png" alt="이미지 9">
+        귤 9
+    </button>
+    <button id="button10" onclick="hideButton('button10')" style="top: 500px; left: 500px;">
+        <img src="귤.png" alt="이미지 10">
+        귤 10
+    </button>
+
+    <script>
+        var buttonClickCount = 0;
+        function hideButton(buttonId) {
+            var button = document.getElementById(buttonId);
+            button.style.display = 'none'; // 버튼을 숨깁니다.
+            buttonClickCount++;
+            if (buttonClickCount === 10) {
+                var popup = document.querySelector('.popup');
+                popup.style.display = 'block';
+            }
+        }
+
+        function moveButtons() {
+            var buttons = document.querySelectorAll('button');
+            buttons.forEach(function(button) {
+                var topPosition = Math.random() * window.innerHeight;
+                var leftPosition = Math.random() * window.innerWidth;
+                button.style.top = topPosition + 'px';
+                button.style.left = leftPosition + 'px';
+            });
+        }
+
+        setInterval(moveButtons, 1000); // 1초마다 버튼 위치를 변경합니다.
+    </script>
+</body>
+
+</html>
